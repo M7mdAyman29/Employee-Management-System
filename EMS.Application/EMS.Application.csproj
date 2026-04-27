@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Exceptions\" />
+    <Folder Include="Common\Helpers\" />
+    <Folder Include="Common\Pagination\" />
+    <Folder Include="Common\Responses\" />
+    <Folder Include="DTO\" />
+    <Folder Include="Sevices\Interfaces\" />
+    <Folder Include="Sevices\Implementations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EMS.Infrastructure\EMS.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

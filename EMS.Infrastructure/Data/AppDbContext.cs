@@ -13,6 +13,7 @@ namespace EMS.Infrastructure.Data
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

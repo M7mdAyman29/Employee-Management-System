@@ -12,11 +12,10 @@ namespace EMS.Domain.Entities
         {
             public string Name { get; set; }
             public string Email { get; set; }
-
             public int DepartmentId { get; set; }
-            public Department Department { get; set; }
-
+            public Department? Department { get; set; }
             public int RoleId { get; set; }
-            public Role Role { get; set; }
-        }
+            public Role? Role { get; set; }
+           public User? User { get; set; }
+    }
 }

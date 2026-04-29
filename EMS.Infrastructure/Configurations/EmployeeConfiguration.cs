@@ -28,12 +28,12 @@ namespace EMS.Infrastructure.Configurations
             //relationships
 
             builder.HasOne(e => e.Department)
-                   .WithMany()
+                   .WithMany(d => d.Employees)
                    .HasForeignKey(e => e.DepartmentId)
                    .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(e => e.Role)
-                   .WithMany()
+                   .WithMany(r => r.Employees)
                    .HasForeignKey(e => e.RoleId)
                    .OnDelete(DeleteBehavior.Restrict);
         }

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "UWPN0brlHUU=",
+  "dgSpecHash": "q/H8kxtGWWA=",
   "success": true,
   "projectFilePath": "C:\\Users\\Mohamed.Ayman\\Desktop\\Train\\Employee Management System\\EMS.Domain\\EMS.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Mohamed.Ayman\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.24\\microsoft.windowsdesktop.app.ref.8.0.24.nupkg.sha512",
+    "C:\\Users\\Mohamed.Ayman\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.24\\microsoft.netcore.app.ref.8.0.24.nupkg.sha512",
+    "C:\\Users\\Mohamed.Ayman\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.24\\microsoft.aspnetcore.app.ref.8.0.24.nupkg.sha512"
+  ],
   "logs": []
 }

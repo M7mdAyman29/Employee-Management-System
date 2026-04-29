@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EMS.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260427084709_init")]
-    partial class init
+    [Migration("20260427120037_new")]
+    partial class @new
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,9 +59,6 @@ namespace EMS.Infrastructure.Migrations
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DepartmentId1")
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -75,18 +72,11 @@ namespace EMS.Infrastructure.Migrations
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("RoleId1")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("DepartmentId");
 
-                    b.HasIndex("DepartmentId1");
-
                     b.HasIndex("RoleId");
-
-                    b.HasIndex("RoleId1");
 
                     b.ToTable("Employees", (string)null);
                 });
@@ -115,24 +105,16 @@ namespace EMS.Infrastructure.Migrations
             modelBuilder.Entity("EMS.Domain.Entities.Employee", b =>
                 {
                     b.HasOne("EMS.Domain.Entities.Department", "Department")
-                        .WithMany()
+                        .WithMany("Employees")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("EMS.Domain.Entities.Department", null)
-                        .WithMany("Employees")
-                        .HasForeignKey("DepartmentId1");
-
                     b.HasOne("EMS.Domain.Entities.Role", "Role")
-                        .WithMany()
+                        .WithMany("Employees")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("EMS.Domain.Entities.Role", null)
-                        .WithMany("Employees")
-                        .HasForeignKey("RoleId1");
 
                     b.Navigation("Department");
 

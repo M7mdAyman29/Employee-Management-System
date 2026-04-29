@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace EMS.Infrastructure.Configurations
 {
-    public class DepartmentsConfiguration : IEntityTypeConfiguration<Employee>
+    public class DepartmentsConfiguration : IEntityTypeConfiguration<Department>
     {
-        public void Configure(EntityTypeBuilder<Employee> builder)
+        public void Configure(EntityTypeBuilder<Department> builder)
         {
             builder.ToTable("Departments");
 

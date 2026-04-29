@@ -8,12 +8,13 @@
 
   <ItemGroup>
     <Folder Include="Common\Exceptions\" />
-    <Folder Include="Common\Helpers\" />
     <Folder Include="Common\Pagination\" />
-    <Folder Include="Common\Responses\" />
-    <Folder Include="DTO\" />
-    <Folder Include="Sevices\Interfaces\" />
-    <Folder Include="Sevices\Implementations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentNHibernate" Version="3.4.1" />
   </ItemGroup>
 
   <ItemGroup>

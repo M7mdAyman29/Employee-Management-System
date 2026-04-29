@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EMS.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class @new : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -49,8 +49,6 @@ namespace EMS.Infrastructure.Migrations
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     DepartmentId = table.Column<int>(type: "int", nullable: false),
                     RoleId = table.Column<int>(type: "int", nullable: false),
-                    DepartmentId1 = table.Column<int>(type: "int", nullable: true),
-                    RoleId1 = table.Column<int>(type: "int", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -63,21 +61,11 @@ namespace EMS.Infrastructure.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Employees_Departments_DepartmentId1",
-                        column: x => x.DepartmentId1,
-                        principalTable: "Departments",
-                        principalColumn: "Id");
-                    table.ForeignKey(
                         name: "FK_Employees_Roles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "Roles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Employees_Roles_RoleId1",
-                        column: x => x.RoleId1,
-                        principalTable: "Roles",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -86,19 +74,9 @@ namespace EMS.Infrastructure.Migrations
                 column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Employees_DepartmentId1",
-                table: "Employees",
-                column: "DepartmentId1");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Employees_RoleId",
                 table: "Employees",
                 column: "RoleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Employees_RoleId1",
-                table: "Employees",
-                column: "RoleId1");
         }
 
         /// <inheritdoc />

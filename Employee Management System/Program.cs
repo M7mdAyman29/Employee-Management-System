@@ -24,10 +24,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DC")));
 
-builder.Services.AddAutoMapper(cfg =>
-{
-    cfg.AddProfile<EmployeeProfile>();
-});
+//builder.Services.AddAutoMapper(cfg =>
+//{
+//cfg.AddProfile<EmployeeProfile>();
+//});
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();

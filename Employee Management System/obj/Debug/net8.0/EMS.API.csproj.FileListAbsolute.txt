@@ -177,3 +177,11 @@ C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Managem
 C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\Antlr3.Runtime.dll
+C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\FluentNHibernate.dll
+C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\Iesi.Collections.dll
+C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\NHibernate.dll
+C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\Remotion.Linq.dll
+C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\Remotion.Linq.EagerFetching.dll

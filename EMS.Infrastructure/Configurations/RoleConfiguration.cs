@@ -20,6 +20,16 @@ namespace EMS.Infrastructure.Configurations
             builder.Property(r => r.Name)
                    .IsRequired()
                    .HasMaxLength(100);
+
+            builder.Property(x => x.CreatedAt)
+       .HasDefaultValueSql("GETUTCDATE()");
+            // 🔥 Seed Data
+            builder.HasData(
+                new Role { Id = 1, Name = "Admin" },
+                new Role { Id = 2, Name = "Employee" },
+                new Role { Id = 3, Name = "Manager" },
+                new Role { Id = 4, Name = "HR" }
+            );
         }
     }
 }

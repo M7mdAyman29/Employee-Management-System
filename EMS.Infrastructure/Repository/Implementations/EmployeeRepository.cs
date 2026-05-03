@@ -27,9 +27,18 @@ namespace EMS.Infrastructure.Repositry.Implementations
                 .ToListAsync();
         }
 
+        public IQueryable<Employee> GetPaged()
+        {
+            return _dbContext.Employees
+                .Include(e => e.Department).
+                Include(e => e.Role)
+                .AsQueryable();
+        }
+
         public Task<Employee?> GetByIdAsync(int id)
         {
-            return _dbContext.Employees.FirstOrDefaultAsync(e => e.Id == id);
+            return _dbContext.Employees.Include(e => e.Department).
+                Include(e => e.Role).FirstOrDefaultAsync(e => e.Id == id);
         }   
 
         public async Task AddAsync(Employee employee)

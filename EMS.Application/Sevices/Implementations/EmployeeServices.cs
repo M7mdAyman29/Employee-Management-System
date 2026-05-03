@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using EMS.Application.Common.Helpers;
+using EMS.Application.Common.Pagination;
 using EMS.Application.Common.Responses;
 using EMS.Application.DTO.Empolyee;
 using EMS.Application.Sevices.Interfaces;
@@ -6,7 +8,9 @@ using EMS.Domain.Entities;
 using EMS.Domain.Enums;
 using EMS.Infrastructure.Repositry.Interface;
 using EMS.Infrastructure.UnitOfWork.Interfaces;
+using FluentNHibernate.Conventions;
 using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EMS.Application.Services.Implementations
 {
@@ -29,7 +33,7 @@ namespace EMS.Application.Services.Implementations
         // GET ALL
         public async Task<ApiResponse> GetEmployeesListAsync()
         {
-            var employees = await _repo.GetAllAsync();
+            var employees =  _repo.GetAllAsync();
             var result = _mapper.Map<List<EmployeeDTO>>(employees);
 
             return new ApiResponse
@@ -40,6 +44,48 @@ namespace EMS.Application.Services.Implementations
             };
         }
 
+
+        // Get Paged
+
+        // GET ALL
+        public async Task<ApiResponse> GetPaged(EmployeeQuery query)
+        {
+            //  Base query
+            var employees = _repo.GetPaged();
+
+            //  Filter first (best performance)
+            if (query.DepartmentId.HasValue)
+                employees = employees.Where(e => e.DepartmentId == query.DepartmentId);
+
+            //  Search
+            if (!string.IsNullOrEmpty(query.Search))
+                employees = employees.Where(e => e.Name.Contains(query.Search));
+
+            //  Sorting
+            employees = SortHepler.ApplySorting(employees, query.SortBy, query.IsAsc ?? true);
+
+            //  Pagination
+            var pagedData = await PaginationHelper.CreateAsync(
+                employees,
+                query.Page,
+                query.PageSize
+            );
+
+            var result = _mapper.Map<List<EmployeeDTO>>(pagedData.Data);
+
+            return new ApiResponse
+            {
+                StatusCode = AppStatusCodesEnum.Success,
+                Message = "Data retrieved successfully",
+                Data = new
+                {
+                    pagedData.TotalCount,
+                    pagedData.Page,
+                    pagedData.PageSize,
+                    Data = result
+                }
+            };
+        }
         // GET BY ID
         public async Task<ApiResponse> GetEmployeeByIdAsync(int id)
         {
@@ -80,7 +126,7 @@ namespace EMS.Application.Services.Implementations
             await _repo.AddAsync(employee);
             await _unitOfWork.SaveChangesAsync();
 
-            var fullEmployee = await _repo.GetByIdAsync(employee.Id);
+            var fullEmployee = _mapper.Map<EmployeeDTO>(employee);
 
 
             return new ApiResponse

@@ -21,9 +21,7 @@ namespace EMS.Infrastructure.Configurations
                    .IsRequired()
                    .HasMaxLength(100);
 
-            builder.Property(e => e.Email)
-                   .IsRequired()
-                   .HasMaxLength(100);
+       
 
             //relationships
 
@@ -36,6 +34,10 @@ namespace EMS.Infrastructure.Configurations
                    .WithMany(r => r.Employees)
                    .HasForeignKey(e => e.RoleId)
                    .OnDelete(DeleteBehavior.Restrict);
+
+
+            builder.Property(x => x.CreatedAt)
+       .HasDefaultValueSql("GETUTCDATE()");
         }
     }
 }

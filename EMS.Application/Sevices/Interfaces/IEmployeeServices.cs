@@ -13,6 +13,7 @@ namespace EMS.Application.Sevices.Interfaces
     {
         Task<ApiResponse> GetEmployeesListAsync();
 
+        Task<ApiResponse> GetPaged(EmployeeQuery query);
         Task<ApiResponse> GetEmployeeByIdAsync(int id);
 
         Task<ApiResponse> AddEmployeeAsync(AddEmployeeDTO dto);

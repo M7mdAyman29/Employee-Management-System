@@ -38,14 +38,16 @@ namespace EMS.Application.Common.Helpers
             {
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                 new Claim("EmployeeId", user.EmployeeId.ToString())
+                 new Claim("EmployeeId", user.EmployeeId.ToString()),
+                  new Claim(ClaimTypes.Role, user.Employee.Role.Name)
             };
+
 
             var token = new JwtSecurityToken(
                 issuer: jwtSettings["Issuer"],
                 audience: jwtSettings["Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings["DurationInMinutes"])),
+                expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(jwtSettings["DurationInMinutes"])),
                 signingCredentials: creds
             );
 

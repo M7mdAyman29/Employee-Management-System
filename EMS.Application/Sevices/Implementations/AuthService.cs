@@ -7,6 +7,7 @@ using EMS.Domain.Enums;
 using EMS.Infrastructure.Repository.Interfaces;
 using EMS.Infrastructure.Repositry.Interface;
 using EMS.Infrastructure.UnitOfWork.Interfaces;
+using Org.BouncyCastle.Crypto.Generators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,7 +54,7 @@ namespace EMS.Application.Sevices.Implementations
             var user = new User
             {
                 Email = dto.Email,
-                PasswordHash = dto.Password,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
                 EmployeeId = dto.EmployeeId
             };
 

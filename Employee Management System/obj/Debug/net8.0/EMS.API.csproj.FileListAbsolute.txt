@@ -185,3 +185,6 @@ C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Managem
 C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\NHibernate.dll
 C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\Remotion.Linq.dll
 C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\Remotion.Linq.EagerFetching.dll
+C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Mohamed.Ayman\Desktop\Train\Employee Management System\Employee Management System\bin\Debug\net8.0\BouncyCastle.Crypto.dll

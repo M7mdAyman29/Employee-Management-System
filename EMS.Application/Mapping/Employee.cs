@@ -18,7 +18,7 @@ namespace EMS.Application.Mapping.Employees
                  .ForMember(dest => dest.CreatedAt, opt => opt.Ignore());
             
             CreateMap<Employee,EmployeeDTO>()
-                 .ForMember(dest => dest.DepartmentName, opt => opt.MapFrom(src => src.Department.Name))
+                 .ForMember(dest => dest.DepartmentName, opt => opt.MapFrom( src => src.Department.Name))
                  .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Role.Name));
 
 

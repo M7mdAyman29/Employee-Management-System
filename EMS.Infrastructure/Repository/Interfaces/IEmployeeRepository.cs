@@ -13,6 +13,8 @@ namespace EMS.Infrastructure.Repositry.Interface
     public interface IEmployeeRepository
     {
         Task<List<Employee>> GetAllAsync();
+
+        IQueryable<Employee> GetPaged();
         Task<Employee?> GetByIdAsync(int id);
 
         Task AddAsync(Employee employee);

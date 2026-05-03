@@ -1,5 +1,6 @@
 ﻿using EMS.Domain.Entities;
 using EMS.Infrastructure.Data;
+using EMS.Infrastructure.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EMS.Infrastructure.Repository.Implementations
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _context;
         public UserRepository(AppDbContext context)
@@ -26,7 +27,12 @@ namespace EMS.Infrastructure.Repository.Implementations
         {
             return await _context.Users
                 .Include(u => u.Employee)
+                   .ThenInclude(e => e.Role)
+        .Include(u => u.Employee)
+            .ThenInclude(e => e.Department)
                 .FirstOrDefaultAsync(u => u.Email == email);
+
         }
+
     }
 }

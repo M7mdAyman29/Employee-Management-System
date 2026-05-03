@@ -32,6 +32,10 @@ namespace EMS.Infrastructure.Configurations
                    .WithOne(e => e.User)
                    .HasForeignKey<User>(u => u.EmployeeId)
                    .OnDelete(DeleteBehavior.Cascade);
+
+
+            builder.Property(x => x.CreatedAt)
+                   .HasDefaultValueSql("GETUTCDATE()");
         }
     }
 }

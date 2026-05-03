@@ -20,6 +20,15 @@ namespace EMS.Infrastructure.Configurations
             builder.Property(d => d.Name)
                    .IsRequired()
                    .HasMaxLength(100);
+
+            builder.Property(x => x.CreatedAt)
+                   .HasDefaultValueSql("GETUTCDATE()");
+
+            builder.HasData(
+        new Department { Id = 1, Name = "HR" },
+        new Department { Id = 2, Name = "IT" },
+        new Department { Id = 3, Name = "Finance" }
+    );
         }
     }
 }
